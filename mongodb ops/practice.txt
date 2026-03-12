@@ -1,0 +1,748 @@
+db.users.find({age:{$in:[19,21]}})
+{
+  _id: ObjectId('69a91ce76fc97543b7910847'),
+  id: 101,
+  name: 'lexus',
+  age: 19
+}
+{
+  _id: ObjectId('69a91f6b6fc97543b791084a'),
+  id: 101,
+  name: 'Hexus',
+  age: 19
+}
+
+
+
+db.users.find({$and:[{age:19},{name:"lexus"}]})
+{
+  _id: ObjectId('69a91ce76fc97543b7910847'),
+  id: 101,
+  name: 'lexus',
+  age: 19
+}
+
+
+db.users.updateOne({name:"Hexus"},{$set:{name:"Texas",id:104}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91ce76fc97543b7910847'),
+  id: 101,
+  name: 'lexus',
+  age: 19
+}
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a91e0a6fc97543b7910849'),
+  id: 103,
+  name: 'excess',
+  age: 23
+}
+{
+  _id: ObjectId('69a91f6b6fc97543b791084a'),
+  id: 104,
+  name: 'Texas',
+  age: 19
+}
+
+
+db.users.deleteOne({id:103})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+
+
+db.users.deleteOne({age:19})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+
+
+db.users.insertOne({id:104,name:"Texas",age:19})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69a9247f6fc97543b791084b')
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a91f6b6fc97543b791084a'),
+  id: 104,
+  name: 'Texas',
+  age: 19
+}
+{
+  _id: ObjectId('69a9247f6fc97543b791084b'),
+  id: 104,
+  name: 'Texas',
+  age: 19
+}
+
+
+db.users.deleteOne({age:19})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a9247f6fc97543b791084b'),
+  id: 104,
+  name: 'Texas',
+  age: 19
+}
+
+
+db.users.insertOne({id:101,name:"lexus",age:19})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69a924a96fc97543b791084c')
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a9247f6fc97543b791084b'),
+  id: 104,
+  name: 'Texas',
+  age: 19
+}
+{
+  _id: ObjectId('69a924a96fc97543b791084c'),
+  id: 101,
+  name: 'lexus',
+  age: 19
+}
+
+
+db.users.deleteMany({age:19})
+{
+  acknowledged: true,
+  deletedCount: 2
+}
+
+ 
+db.users.insertOne({id:105,name:"lexus",age:19,address:{city:"LA",country:"USA"}})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69a935156fc97543b791084d')
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    city: 'LA',
+    country: 'USA'
+  }
+}
+
+
+db.users.updateOne({name:"lexus"},{$set:{contact:9293892937}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    city: 'LA',
+    country: 'USA'
+  },
+  contact: 9293892937
+}
+
+
+db.users.updateOne({name:"lexus"},{$set:{contact:777777}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    city: 'LA',
+    country: 'USA'
+  },
+  contact: 777777
+}
+
+
+db.users.updateOne({name:"lexus"},{$set:{"address.city":""}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    city: '',
+    country: 'USA'
+  },
+  contact: 777777
+}
+
+
+db.users.updateOne({name:"lexus"},{$unset:{"address.city":""}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    country: 'USA'
+  },
+  contact: 777777
+}
+
+
+db.users.updateOne({name:"lexus"},{$unset:{skills:["React","Express"]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    country: 'USA'
+  },
+  contact: 777777
+}
+
+
+db.users.updateOne({name:"lexus"},{$set:{skills:["React","Express"]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    country: 'USA'
+  },
+  contact: 777777,
+  skills: [
+    'React',
+    'Express'
+  ]
+}
+
+
+
+db.users.updateOne({name:"lexus"},{$push:{skills:["Angular"]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    country: 'USA'
+  },
+  contact: 777777,
+  skills: [
+    'React',
+    'Express',
+    [
+      'Angular'
+    ]
+  ]
+}
+
+
+
+db.users.updateOne({name:"lexus"},{$unset:{skills:["Angular"]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    country: 'USA'
+  },
+  contact: 777777
+}
+
+
+db.users.updateOne({name:"lexus"},{$set:{skills:["React","Express"]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    country: 'USA'
+  },
+  contact: 777777,
+  skills: [
+    'React',
+    'Express'
+  ]
+}
+
+
+
+db.users.updateOne({name:"lexus"},{$push:{skills:"Angular"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    country: 'USA'
+  },
+  contact: 777777,
+  skills: [
+    'React',
+    'Express',
+    'Angular'
+  ]
+}
+
+
+db.users.updateOne({name:"lexus"},{$addToSet:{skills:"Angular"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    country: 'USA'
+  },
+  contact: 777777,
+  skills: [
+    'React',
+    'Express',
+    'Angular'
+  ]
+}
+                                                                        
+db.users.updateOne({name:"lexus"},{$addToSet:{skills:{$each:["Angular"]}}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+
+
+db.users.updateOne({name:"lexus"},{$addToSet:{skills:{$each:["Angular","Mongo"]}}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    country: 'USA'
+  },
+  contact: 777777,
+  skills: [
+    'React',
+    'Express',
+    'Angular',
+    'Mongo'
+  ]
+}
+
+
+db.users.updateOne({name:"lexus"},{$push:{skills:{$each:["Angular"]}}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    country: 'USA'
+  },
+  contact: 777777,
+  skills: [
+    'React',
+    'Express',
+    'Angular',
+    'Mongo',
+    'Angular'
+  ]
+}
+
+
+db.users.updateOne({name:"lexus"},{$pop:{skills:+1}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    country: 'USA'
+  },
+  contact: 777777,
+  skills: [
+    'React',
+    'Express',
+    'Angular',
+    'Mongo'
+  ]
+}
+
+
+db.users.updateOne({name:"lexus"},{$pull:{skills:"Angular"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+db.users.find()
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  id: 102,
+  name: 'nexus',
+  age: 18
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    country: 'USA'
+  },
+  contact: 777777,
+  skills: [
+    'React',
+    'Express',
+    'Mongo'
+  ]
+}
+
+
+db.users.find({skills:["React","Express","Mongo"]})
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    country: 'USA'
+  },
+  contact: 777777,
+  skills: [
+    'React',
+    'Express',
+    'Mongo'
+  ]
+}
+
+
+db.users.find({skills:{$all:["React","Mongo","Express"]}})
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  id: 105,
+  name: 'lexus',
+  age: 19,
+  address: {
+    country: 'USA'
+  },
+  contact: 777777,
+  skills: [
+    'React',
+    'Express',
+    'Mongo'
+  ]
+}
+
+
+db.users.find({},{name:1})
+{
+  _id: ObjectId('69a91e0a6fc97543b7910848'),
+  name: 'nexus'
+}
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  name: 'lexus'
+}
+
+
+
+db.users.find({name:"lexus"},{name:1,skills:1})
+{
+  _id: ObjectId('69a935156fc97543b791084d'),
+  name: 'lexus',
+  skills: [
+    'React',
+    'Express',
+    'Mongo'
+  ]
+}
+
+
+
