@@ -1,0 +1,85 @@
+### read all users 
+GET http://localhost:3030/user-api/users
+
+
+###
+GET http://localhost:4040/product-api/products
+
+
+###read users by id
+GET http://localhost:3030/user-api/users/69aa877e97285ef414d34029
+
+
+###read products by id 
+GET http://localhost:4040/product-api/products/1
+
+
+###create new user
+
+POST http://localhost:3030/user-api/users
+Content-Type: application/json
+
+{
+    "username":"Zack",
+    "password":"hello",
+    "email":"sathvik@gmail.com",
+    "age":18
+}
+
+###create login
+POST http://localhost:3030/user-api/auth
+Content-Type: application/json
+
+{
+    "email":"sathvik@gmail.com",
+    "password":"hello"
+    
+}
+
+
+
+###create new product
+POST http://localhost:4040/product-api/products
+Content-Type: application/json
+
+{
+    "productId":3,
+    "productName":"Table",
+    "price":25000,
+    "brand":"Furnx"
+}
+
+
+###update the user
+PUT http://localhost:3030/user-api/users/69aa74b2eb5f589930f4baeb
+
+Content-Type: application/json
+
+{
+    "username":"Sathvik",
+    "password":"ojbfvn",
+    "email":"lucky@gmail.com",
+    "age":18
+}
+
+###update a product via ID
+PUT http://localhost:4040/product-api/products/1
+
+Content-Type: application/json
+
+{
+    "productId":2,
+    "productName":"Fan",
+    "price":30000,
+    "brand":"Orient"
+}
+
+
+
+###delete user by id
+DELETE http://localhost:3030/user-api/users/69aa8a1f7075bef7c58a593a
+
+###delete product by id 
+DELETE http://localhost:4040/product-api/products/69aba260a69a6a53840dcf21
+
+
